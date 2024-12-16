@@ -5,6 +5,7 @@ dotenv.config();
 const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
 export async function Chat(req, res) {
   const { prompt } = req.body;
+
   const systemPrompt = `
 You are an AI Finance Coach, a highly knowledgeable and helpful assistant specializing in personal finance, investments, budgeting, and financial planning.
 
@@ -39,7 +40,7 @@ Your task is to provide clear, accurate, and actionable financial advice tailore
 7. **Misc**
   - If user requests for non financial advice, respond to the message request, and then say we should go back to discussing finances 
   as thats what im here for!
-
+ - After 2 non finance user requests, you will say goodbye
 
 Your ultimate goal is to empower users with clear, well-organized, and actionable financial advice.
 Keep your responses consise and DO NOT over cluster the information
@@ -54,12 +55,13 @@ Keep your responses consise and DO NOT over cluster the information
       ],
       temperature: 0.7,
     });
-
     const assistantMessage = completion.choices[0].message.content;
 
     console.log("Assistant response:", assistantMessage);
 
-    return res.status(200).json({ response: assistantMessage });
+    return res.status(200).json({ 
+      UserRequest: prompt,
+      response: assistantMessage });
   } catch (error) {
     console.error("Error in Chat API:", error);
 

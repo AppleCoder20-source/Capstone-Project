@@ -43,7 +43,7 @@ function ChatBox() {
     e.preventDefault();
     if (!message.trim()) return;
 
-    // Add user message to chat and show a placeholder assistant response
+    // Add user message to chat and show when AI is typing
     const newMessages = [
       ...messages,
       { role: "user", content: message.trim() },

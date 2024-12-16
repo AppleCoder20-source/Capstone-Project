@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
-import { Chat } from './pages/Chat';
+import ChatBox from './pages/Chat';
 
 export default function App() {
   return (
@@ -16,7 +16,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/chat" element={<Chat />} />
+          <Route path="/chat" element={<ChatBox />} />
         </Routes>
       </div>
     </div>

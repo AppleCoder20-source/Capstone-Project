@@ -24,7 +24,7 @@ const LoginForm = () => {
     setError(null); // Clear previous errors
 
     try {
-      const response = await fetch("http://localhost:3001/api/login", {
+      const response = await fetch("https://finance-coach-seven.vercel.app//api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, userName, email, password }), // Send form data

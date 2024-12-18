@@ -17,7 +17,7 @@ export default function SignUp() {
     setError(null); // Clear previous errors
 
     try {
-      const response = await axios.post('http://localhost:3001/api/signup', {
+      const response = await axios.post('https://finance-coach-seven.vercel.app/api/signup', {
         name,
         userName,
         email,

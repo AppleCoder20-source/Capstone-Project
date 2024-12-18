@@ -1,11 +1,11 @@
 import express from "express";
-import { Chat } from "./api.js"; 
+import {POST} from "./api.js"; 
 
 const router = express.Router();
 
 router.post("/", async (req, res) => {
   try {
-    await Chat(req, res); 
+    await POST(req, res); 
 
   } catch (error) {
     console.error("Error in chatRoute:", error);

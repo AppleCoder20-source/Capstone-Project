@@ -2,8 +2,8 @@ import OpenAI from 'openai';
 import dotenv from "dotenv";
 dotenv.config();
 
-const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
-export async function Chat(req, res) {
+const openai = new OpenAI();
+export async function POST(req, res) {
   const { prompt } = req.body;
 
   const systemPrompt = `
@@ -25,10 +25,11 @@ Your task is to provide clear, accurate, and actionable financial advice tailore
 
 4. **Example Response Format**:
    When answering a query, structure your response as follows:
-   -  Provide a brief summary of the topic.
+
    -  Offer step-by-step guidance the user can follow.
    - Summarize the advice and encourage further questions.
-   -  do this via a convo format and make the responses conscise
+   - Be Detailed about the guidance and advice and follow up with the users request
+   - Go above and beyond and provide great financial advice,
 
 
 5. **Avoid Legal or Tax Advice**:

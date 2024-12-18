@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import chatRoute from "./routes/chatRoute.js"; 
 import signupRoute from "./routes/SignUpRoute.mjs";
 import Login from "./routes/loggingRoute.js";
-
+import Update from "./routes/UpdateRoutes.js"
 import mongoose from "mongoose";
 
 dotenv.config();
@@ -32,7 +32,9 @@ app.use(express.json());
 // Routes
 app.use("/api/chat", chatRoute);
 app.use("/api", signupRoute); 
-app.use("/api", Login); 
+app.use("/api", Login);
+app.use("/update", Update); 
+
 
 
 

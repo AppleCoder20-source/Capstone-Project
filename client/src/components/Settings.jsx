@@ -24,7 +24,7 @@ export default function SettingsPage() {
     // Handle Update Email
     const handleUpdate = async () => {
         try {
-            const response = await axios.patch(`https://capstone-project-1-backend.vercel.app/api/update`, {
+            const response = await axios.patch(`http://localhost:3001/api/update`, {
                 email: newEmail,
                 password: newPassword,
                 userName: newUserName,

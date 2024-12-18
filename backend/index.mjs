@@ -28,7 +28,7 @@ mongoose.connect(ATLAS_URI
 app.use(
   cors({
     origin: ["https://finance-coach-seven.vercel.app/", "http://localhost:3000", "http://localhost:3001"],
-    methods: ["GET", "POST", "DELETE", "PUT"],
+    methods: ["GET", "POST", "DELETE", "PATCH"],
     credentials:true,
   }))
 app.use(express.json());

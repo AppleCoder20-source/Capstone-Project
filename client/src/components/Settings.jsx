@@ -13,7 +13,7 @@ export default function SettingsPage() {
     // retrieve delete endpoint
     const handleDelete = async () => {
         try {
-            const response = await axios.delete(`https://capstone-project-1-backend.vercel.app/update/clear/${name}`);
+            const response = await axios.delete(`http://localhost:3001/update/clear/${name}`);
             setMessage(response.data.msg);
         } catch (error) {
             setMessage(error.response?.data?.msg || "Error deleting user");

@@ -44,7 +44,7 @@ export default function SignUp() {
         <h2 className="text-3xl font-extrabold mb-6 text-center text-black">Create Your Account</h2>
         <p className="text-center mb-6 text-sm text-">Join us and start your journey</p>
 
-        {error && <p className="text-red-500 text-center mb-4">{error}</p>} {/* Show error message */}
+        {error && <p className="text-red-500 text-center mb-4">{error}</p>} {/* Show error messages */}
 
         <form onSubmit={handleSubmit}>
           <div className="mb-4">

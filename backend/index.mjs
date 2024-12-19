@@ -32,7 +32,7 @@ app.use(express.json());
 // Routes
 app.use("/api/chat", chatRoute);
 app.use("/api", signupRoute); 
-app.use("/", Login);
+app.use("/api", Login);
 app.use("/update", Update); 
 
 

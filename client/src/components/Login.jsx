@@ -26,7 +26,7 @@ const LoginForm = () => {
 
     try {
       const API_URL = import.meta.env.VITE_API_URL;
-      const response = await fetch(`${API_URL}/login`, {
+      const response = await fetch("http://localhost:3001/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, userName, email, password }), // Send form data

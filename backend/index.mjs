@@ -25,7 +25,13 @@ mongoose.connect(ATLAS_URI
 
 
 // Middleware
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://ai-finance-coach.vercel.app/", "http://localhost:3000", "http://localhost:3001"],
+    methods: ["GET", "POST", "DELETE", "PUT"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 

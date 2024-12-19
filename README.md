@@ -3,12 +3,9 @@
 Your personal AI financial advsior built with the MERN stack (MongoDB, Express, React, Node.js). Gives advice to users about saving money, discounts, how to best allocate budgeting. 
 
 ## Features
-- **User Authenitication** 
-- Login and Sign in pages, with form validation
-- **Accounts** 
-- Users can create new accounts, update information, and delete their own information,
-- **API Interaction** 
-- After signing up succesfully, can interact with our AI coach
+- **User Authenitication** -Login and Sign in pages, with form validation
+- **Accounts** - Users can create new accounts, update information, and delete their own information,
+- **API Interaction** - After signing up succesfully, can interact with our AI coach
 
 ## Technologies Used
 

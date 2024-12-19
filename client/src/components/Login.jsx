@@ -8,7 +8,6 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
   const [error, setError] = useState(null); // Track errors
-  const API_URL = import.meta.env.url;
 
 
   const navigate = useNavigate();
@@ -26,6 +25,7 @@ const LoginForm = () => {
     setError(null); // Clear previous errors
 
     try {
+      const API_URL = import.meta.env.VITE_API_URL;
       const response = await fetch(`${API_URL}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },

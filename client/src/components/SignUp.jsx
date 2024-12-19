@@ -11,7 +11,7 @@ export default function SignUp() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const API_URL = import.meta.env.url;
+  const API_URL = import.meta.env.VITE_API_URL;
 
 
   const handleSubmit = async (e) => {

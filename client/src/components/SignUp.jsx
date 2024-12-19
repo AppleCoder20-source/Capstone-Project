@@ -17,7 +17,7 @@ export default function SignUp() {
     setError(null); // Clear previous errors
 
     try {
-      const response = await axios.post('http://localhost:3001/api/signup', {
+      const response = await axios.post('https://capstone-project-8kjr.onrender.com/api/signup', {
         name,
         userName,
         email,

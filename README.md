@@ -42,6 +42,8 @@ Make sure you have the following installed:
 Get OPENAI API Key
 Get MongoURi connection string 
 
+
+
 ### All Routes
 - GET: /:id, to get specific users ID
 - POST: Login form, Sign in form, as well as interaction with ChatGPT API

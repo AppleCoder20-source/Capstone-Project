@@ -56,10 +56,12 @@ function ChatBox() {
       ]);
     }
   };
+    {/* outer  blue box */}
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-500 to-blue-600 p-4">
       <h1 className="text-2xl font-bold text-black mb-10">AI Finance Coach</h1>
+      {/* inner blue box */}
       <div className="w-full max-w-2xl bg-blue-300 rounded-lg shadow-lg p-6 flex flex-col h-[75vh]">
         <div className="flex-1 overflow-y-auto pr-2 space-y-4">
           {messages.map((message, index) => (

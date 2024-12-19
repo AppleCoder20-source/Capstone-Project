@@ -24,8 +24,8 @@ const WhyChooseUs = () => {
     <section className="text-center px-8 py-16 bg-indigo-500 text-gray-800">
       <h2 className="text-4xl font-bold text-black">Why Choose Us?</h2>
       <p className="mt-4 text-lg text-black">
-        Our AI Finance Coach combines cutting-edge AI technology with expert
-        financial insights to help you achieve your goals.
+        expert
+financial insights to help you achieve your goals.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
         {cardData.map((card, index) => (

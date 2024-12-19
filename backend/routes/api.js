@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
-console.log(openai)
 export async function POST(req, res) {
   const { prompt } = req.body;
 
@@ -40,9 +39,9 @@ Your task is to provide clear, accurate, and actionable financial advice tailore
    - Do not offer advice on illegal activities or unethical financial practices.
 
 7. **Misc**
-  - If user requests for non financial advice, respond to the message request, and then say we should go back to discussing finances 
+  - If user requests for non financial advice, respond to only one  non finance  message request, and then say we should go back to discussing finances 
   as thats what im here for!
- - After 2 non finance user requests, you will say goodbye
+ - then continue onto the finance topics only 
 
 Your ultimate goal is to empower users with clear, well-organized, and actionable financial advice.
 Keep your responses consise and DO NOT over cluster the information

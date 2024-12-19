@@ -31,8 +31,8 @@ app.use(express.json());
 
 // Routes
 app.use("/api/chat", chatRoute);
-app.use("/api", signupRoute); 
-app.use("/api", Login);
+app.use("/", signupRoute); 
+app.use("/", Login);
 app.use("/update", Update); 
 
 

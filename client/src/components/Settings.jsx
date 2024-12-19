@@ -9,11 +9,13 @@ export default function SettingsPage() {
     const [newUserName, setUserName] = useState('');
 
     const [message, setMessage] = useState('');
+    const API_URL = import.meta.env.url;
+
 
     // retrieve delete endpoint
     const handleDelete = async () => {
         try {
-            const response = await axios.delete(`http://localhost:3001/update/clear/${name}`);
+            const response = await axios.delete(`${API_URL}/update/clear/${name}`);
             setMessage(response.data.msg);
         } catch (error) {
             setMessage(error.response?.data?.msg || "Error deleting user");
@@ -24,7 +26,7 @@ export default function SettingsPage() {
     // Handle Update Email
     const handleUpdate = async () => {
         try {
-            const response = await axios.patch(`http://localhost:3001/api/update`, {
+            const response = await axios.patch(`${API_URL}/api/update`, {
                 email: newEmail,
                 password: newPassword,
                 userName: newUserName,

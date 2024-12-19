@@ -10,6 +10,8 @@ function ChatBox() {
     },
   ]);
   const [message, setMessage] = useState("");
+  const API_URL = import.meta.env.url;
+
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ function ChatBox() {
     setMessage("");
 
     try {
-      const response = await fetch("http://localhost:3001/api/chat", {
+      const response = await fetch(`${API_URL}/api/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

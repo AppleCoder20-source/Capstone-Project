@@ -11,13 +11,16 @@ export default function SignUp() {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  const API_URL = import.meta.env.url;
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError(null); // Clear previous errors
 
     try {
-      const response = await axios.post('http://localhost:3001/api/signup', {
+      const response = await axios.post(`${API_URL}/api/signup`, {
         name,
         userName,
         email,

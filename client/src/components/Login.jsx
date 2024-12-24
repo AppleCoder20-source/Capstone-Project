@@ -7,7 +7,9 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
-  const [error, setError] = useState(null); // Track errors
+  const [error, setError] = useState(null); // Track errors\
+  const apiUrls = import.meta.env.VITE_API_URL;
+
 
 
   const navigate = useNavigate();
@@ -25,8 +27,7 @@ const LoginForm = () => {
     setError(null); // Clear previous errors
 
     try {
-      const API_URL = import.meta.env.VITE_API_URL;
-      const response = await fetch("http://localhost:3001/api/login", {
+      const response = await fetch(`${apiUrls}api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, userName, email, password }), // Send form data

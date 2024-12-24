@@ -11,6 +11,8 @@ function ChatBox() {
   ]);
   const [message, setMessage] = useState("");
   const inputRef = useRef(null);
+  const apiUrls = import.meta.env.VITE_API_URL;
+
 
   useEffect(() => {
     if (inputRef.current) {
@@ -31,7 +33,7 @@ function ChatBox() {
     setMessage("");
 
     try {
-      const response = await fetch("http://localhost:3001/api/chat", {
+      const response = await fetch(`${apiUrls}/api/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

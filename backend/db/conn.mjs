@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
-
-const connectionString = process.env.ATLAS_URI || 'mongodb://localhost:3001';
+const connectionString = process.env.ATLAS_URI || `mongodb://localhost:3001`;
 
 async function connects() {
   try {

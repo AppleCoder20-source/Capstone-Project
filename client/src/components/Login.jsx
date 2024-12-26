@@ -2,14 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
-  const [error, setError] = useState(null); // Track errors\
+  const [error, setError] = useState(null); // Track errors
   const apiUrls = import.meta.env.VITE_API_URL;
-
-
 
   const navigate = useNavigate();
 
@@ -23,26 +20,24 @@ const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null); // Clear previous errors
+    setError(null); 
 
     try {
       const response = await fetch(`${apiUrls}/apis/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }), // Send form data
+        body: JSON.stringify({ email, password }), 
       });
 
       if (!response.ok) {
-        const errorData = await response.text();
+        const errorData = await response.json();
         setError(errorData.msg || "An error occurred. Please try again.");
         return;
       }
 
       const data = await response.json();
       console.log("Login successful:", data);
-      return data
 
-      // Set login as succesful 
       setIsLoggedIn(true);
     } catch (err) {
       console.error("Error during login:", err);

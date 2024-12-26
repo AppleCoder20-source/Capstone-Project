@@ -34,9 +34,7 @@ const LoginForm = () => {
         setError(errorData.msg || "An error occurred. Please try again.");
         return;
       }
-
       const data = await response.json();
-      console.log("Login successful:", data);
 
       setIsLoggedIn(true);
     } catch (err) {

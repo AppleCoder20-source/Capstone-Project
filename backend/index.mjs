@@ -36,6 +36,11 @@ app.use("/api", signupRoute);
 app.use("/apis", Login); // Mount the login routes at /apis
 app.use("/update", Update);
 
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
+});
+
 // Root route for testing
 app.get("/", (req, res) => {
     res.send("Server is running! Welcome to AI Chat API.");

@@ -3,7 +3,7 @@ import express from "express";
 import Users from "../models/Register.mjs"
 const router = express.Router();
 
-router.post('/', async (req, res) => {
+router.post('/login', async (req, res) => {
     console.log('POST /apis/login called with:', req.body);
 
     const { email, password } = req.body;

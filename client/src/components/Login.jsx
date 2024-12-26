@@ -26,7 +26,7 @@ const LoginForm = () => {
     setError(null); // Clear previous errors
 
     try {
-      const response = await fetch(`${apiUrls}/apis`, {
+      const response = await fetch(`${apiUrls}/apis/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }), // Send form data

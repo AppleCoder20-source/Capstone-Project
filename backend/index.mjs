@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 const ATLAS_URI = process.env.ATLAS_URI;
-const FRONTEND_URL = process.env.VITE_API_URL || "http://localhost:3001"; // Important for CORS
+const FRONTEND_URL = process.env.VITE_API_URL || "http://localhost:3001"; 
 
 mongoose.connect(ATLAS_URI)
     .then(() => {
@@ -22,18 +22,17 @@ mongoose.connect(ATLAS_URI)
         console.error("Mongo Connection issues", err);
     });
 
-// Middleware (Order is VERY important)
 app.use(cors({
-    origin: FRONTEND_URL, // Use environment variable for origin
+    origin: FRONTEND_URL, 
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
     credentials: true, 
 }));
-app.use(express.json()); // Parses JSON request bodies
+app.use(express.json()); 
 
 // Routes
 app.use("/api/chat", chatRoute);
 app.use("/api", signupRoute);
-app.use("/apis", Login); // Mount the login routes at /apis
+app.use("/apis", Login); // Mount the login route
 app.use("/update", Update);
 
 app.use(express.static(path.join(__dirname, 'client', 'dist')));
@@ -46,10 +45,9 @@ app.get("/", (req, res) => {
     res.send("Server is running! Welcome to AI Chat API.");
 });
 
-// Error handling middleware (important!)
 app.use((err, req, res, next) => {
     console.error("Server error:", err); // Log the full error
-    res.status(500).json({ msg: "Server error" }); // Send a consistent error response
+    res.status(500).json({ msg: "Server error" }); 
 });
 
 // Start the server

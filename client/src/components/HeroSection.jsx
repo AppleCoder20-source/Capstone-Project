@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 
 const HeroSection = () => {
@@ -33,7 +34,7 @@ const HeroSection = () => {
         />
       </p>
       <button className="mt-6 bg-white text-indigo-600 font-bold py-2 px-6 rounded-full hover:bg-gray-200 transition duration-300">
-        Get Started
+        <Link to = '/signup'>Get Started</Link>
       </button>
     </section>
   );

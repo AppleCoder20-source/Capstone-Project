@@ -3,18 +3,27 @@ import express from "express";
 import Users from "../models/Register.mjs"
 const router = express.Router();
 
-router.post('/login', async(req,res) => {
-    const { name, userName, email, password } = req.body;
+router.post('/', async (req, res) => {
+    console.log('POST /apis/login called with:', req.body);
 
-    try{
-        const loggingin = await Users.findOne({name,email,userName,password})
-        if(!loggingin){
-            return res.status(404).json({msg:"Sign Up or fill out the form properly!"}) //handles cases where user leaves blank or doesnt fill up form properly 
-            
+    const { email, password } = req.body;
+    try {
+        const user = await Users.findOne({ email });
+        if (!user) {
+            console.log('User not found:', email);
+            return res.status(404).json({ msg: "User not found. Please sign up!" });
         }
-        res.status(201).json({msg:'Status: Sucess',loggingin})
-    }catch(err){
-        res.status(500).json({ msg: err.message || "Server error" });
+
+        if (password !== user.password) {
+            console.log('Incorrect password for:', email);
+            return res.status(400).json({ msg: "Incorrect password!" });
+        }
+
+        console.log('Login successful for:', email);
+        res.status(200).json({ msg: "Login successful" });
+    } catch (err) {
+        console.error('Error during login:', err);
+        res.status(500).json({ msg: "Server error" });
     }
 });
 export default router;

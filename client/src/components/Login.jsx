@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  const [name, setName] = useState("");
-  const [userName, setUserName] = useState("");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
@@ -27,20 +26,21 @@ const LoginForm = () => {
     setError(null); // Clear previous errors
 
     try {
-      const response = await fetch(`${apiUrls}/api/login`, {
+      const response = await fetch(`${apiUrls}/apis`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, userName, email, password }), // Send form data
+        body: JSON.stringify({ email, password }), // Send form data
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
+        const errorData = await response.text();
         setError(errorData.msg || "An error occurred. Please try again.");
         return;
       }
 
       const data = await response.json();
       console.log("Login successful:", data);
+      return data
 
       // Set login as succesful 
       setIsLoggedIn(true);
@@ -59,30 +59,6 @@ const LoginForm = () => {
         {error && <p className="text-red-500 text-center mb-4">{error}</p>} {/* Show error message */}
 
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-sm font-semibold mb-2 text-gray-700" htmlFor="name">Name</label>
-            <input
-              className="w-full p-3 rounded-lg bg-gray-100 text-gray-800 border-none focus:ring-2 focus:ring-teal-500 outline-none"
-              type="text"
-              placeholder="Enter your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-semibold mb-2 text-gray-700" htmlFor="userName">User Name</label>
-            <input
-              className="w-full p-3 rounded-lg bg-gray-100 text-gray-800 border-none focus:ring-2 focus:ring-teal-500 outline-none"
-              type="text"
-              placeholder="Enter your username"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-              required
-            />
-          </div>
-
           <div className="mb-6">
             <label className="block text-sm font-semibold mb-2 text-gray-700" htmlFor="email">Email</label>
             <input

@@ -6,7 +6,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login status
   const [error, setError] = useState(null); // Track errors
-  const apiUrls = import.meta.env.VITE_API_URL;
+  const apiUrls = import.meta.env.VITE_API_URL
 
   const navigate = useNavigate();
 

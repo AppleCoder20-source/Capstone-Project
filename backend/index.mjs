@@ -24,7 +24,7 @@ mongoose.connect(ATLAS_URI)
 
     app.use(cors({
         origin: FRONTEND_URL,
-        methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+        methods: ['GET', 'POST', 'PATCH', 'DELETE'], 
         credentials: true, 
     }));
 app.use(express.json()); 

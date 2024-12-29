@@ -26,7 +26,7 @@ export default function SettingsPage() {
     // Handle Update Email
     const handleUpdate = async () => {
         try {
-            const response = await axios.patch(`${API_URL}/api/update`, {
+            const response = await axios.patch(`${API_URL}/update`, {
                 email: newEmail,
                 password: newPassword,
                 userName: newUserName,

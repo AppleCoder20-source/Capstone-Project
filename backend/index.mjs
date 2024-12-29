@@ -12,7 +12,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 const ATLAS_URI = process.env.ATLAS_URI;
-const FRONTEND_URL = process.env.VITE_API_URL || "http://localhost:3001"; 
+const FRONTEND_URL = process.env.VITE_API_URL; 
 
 mongoose.connect(ATLAS_URI)
     .then(() => {
@@ -22,11 +22,11 @@ mongoose.connect(ATLAS_URI)
         console.error("Mongo Connection issues", err);
     });
 
-app.use(cors({
-    origin: FRONTEND_URL, 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-    credentials: true, 
-}));
+    app.use(cors({
+        origin: FRONTEND_URL,
+        methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+        credentials: true, 
+    }));
 app.use(express.json()); 
 
 // Routes
@@ -35,10 +35,6 @@ app.use("/api", signupRoute);
 app.use("/apis", Login); // Mount the login route
 app.use("/update", Update);
 
-app.use(express.static(path.join(__dirname, 'client', 'dist')));
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
-});
 
 // Root route for testing
 app.get("/", (req, res) => {

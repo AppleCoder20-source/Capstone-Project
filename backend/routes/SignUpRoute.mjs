@@ -27,9 +27,9 @@ router.post('/signup', async (req, res) => {
     }
 });
 router.patch('/update', async (req,res) => {
-    const {userName, email, password } = req.body;
+    const {name, userName, email, password } = req.body;
     try{
-        const UpdateUser = await Users.updateOne({userName, email, password})
+        const UpdateUser = await Users.updateOne({name, userName, email, password})
         res.status(200).json({msg: "User updated account successfully", user: UpdateUser});
     } catch (error) {
         console.error("Signup error:", error);
